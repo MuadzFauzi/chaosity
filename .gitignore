@@ -1,0 +1,42 @@
+# Berkas dan folder bawaan Flutter/Dart yang tidak boleh diunggah
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+build/
+
+# Mengabaikan file konfigurasi Android yang digenerate otomatis
+android/.gradle/
+android/local.properties
+android/generated_plugin_registrant.dart
+
+# Mengabaikan file konfigurasi iOS/Mac yang digenerate otomatis
+ios/.generated/
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/xcworkspace/
+Pods/
+.symlinks/
+develop-build/
+
+# Mengabaikan file konfigurasi Web
+.web_plugins/
+
+# Mengabaikan folder konfigurasi dari Code Editors (VS Code & Android Studio)
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Mengabaikan file log pengetesan dan crash report
+*.log
+.crashlytics/
+
+# Mengabaikan file rahasia/kredensial (Sangat penting jika nanti pakai API key atau .env)
+.env
+*.keystore
+*.jks
