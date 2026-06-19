@@ -16,7 +16,7 @@ class ChaosityGame extends StatelessWidget {
       theme: ThemeData(
         // Kita kunci font default ke sans-serif tebal untuk getaran minimalis modern
         primarySwatch: Colors.grey,
-        fontFamily: 'Sans-Serif',
+        fontFamily: 'Yaelah',
       ),
       home: const StartingScreen(),
     );
