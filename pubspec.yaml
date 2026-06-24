@@ -57,7 +57,19 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/images/latarChapter4.jpg
+    - assets/images/Scene1.png
+    - assets/images/Scene2.png
+    - assets/images/Scene3C.webp
+    - assets/images/Scene3D.png
+    - assets/images/Scene3_final.webp
+    - assets/images/Scene_failed1.png
+    - assets/images/Scene_failed2.png
+    - assets/images/Scene_failed3.png
+    - assets/images/Scene_failed1.webp
+    - assets/images/Scene_failed2.webp
+    - assets/images/Scene_failed3.webp
+    - assets/images/Scene_failed4.webp
+    - assets/images/Scene_success.webp
 
   # To add assets to your application, add an assets section, like this:
   # assets:

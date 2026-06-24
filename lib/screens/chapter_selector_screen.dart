@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
+import 'game_screen_ch4.dart';
 import '../widgets/chaos_background_painter.dart';
 
 class ChapterSelectorScreen extends StatelessWidget {
@@ -201,24 +203,32 @@ class ChapterSelectorScreen extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 16),
       child: GestureDetector(
         onTap: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              backgroundColor: _inkBlack,
-              behavior: SnackBarBehavior.floating,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(4),
-                side: const BorderSide(color: Colors.white, width: 1),
+          if (chapter['num'] == '04') {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => const GameScreenChapter4(),
               ),
-              content: Text(
-                'Membuka ${chapter['sdg']}...',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: _inkBlack,
+                behavior: SnackBarBehavior.floating,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4),
+                  side: const BorderSide(color: Colors.white, width: 1),
+                ),
+                content: Text(
+                  'Membuka ${chapter['sdg']}...',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-          );
-          // TODO: Hubungkan ke halaman game engine frame UI
+            );
+          }
         },
         child: Container(
           decoration: BoxDecoration(
@@ -356,6 +366,126 @@ class ChapterSelectorScreen extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Chapter4IntroScreen extends StatefulWidget {
+  const Chapter4IntroScreen({super.key});
+
+  @override
+  State<Chapter4IntroScreen> createState() => _Chapter4IntroScreenState();
+}
+
+class _Chapter4IntroScreenState extends State<Chapter4IntroScreen> {
+  String _displayedText = "";
+  final String _fullText = "GKB lantai 2 mendadak gempar siang ini...\n\n"
+      "Sebuah keran di bilik toilet utama rusak parah dan menyemburkan air tanpa henti. "
+      "Indikator penampung air kampus mulai kritis. "
+      "Jika tidak segera dihentikan dalam hitungan menit, satu gedung GKB akan tenggelam dalam bencana sanitasi!\n\n"
+      "Misi kamu: Masuk ke dalam bilik dan matikan aliran airnya sekarang juga!";
+
+  bool _showButton = false;
+  int _charIndex = 0;
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _startTyping();
+  }
+
+  void _startTyping() {
+    // Efek mesin tik: Memunculkan huruf setiap 40 milidetik
+    _timer = Timer.periodic(const Duration(milliseconds: 40), (timer) {
+      if (_charIndex < _fullText.length) {
+        setState(() {
+          _displayedText += _fullText[_charIndex];
+          _charIndex++;
+        });
+      } else {
+        _timer?.cancel();
+        setState(() {
+          _showButton = true; // Munculkan tombol setelah teks selesai
+        });
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFFF0F0F0),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // Kotak Cerita Neo-Brutalism
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(color: const Color(0xFF1A1A1A), width: 3),
+                  boxShadow: const [
+                    BoxShadow(color: Color(0xFF1A1A1A), offset: Offset(4, 4)),
+                  ],
+                ),
+                child: Text(
+                  _displayedText,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF1A1A1A),
+                    height: 1.5,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 40),
+              
+              // Tombol Mulai (Hanya muncul jika _showButton true)
+              if (_showButton)
+                GestureDetector(
+                  onTap: () {
+                    // Pakai pushReplacement agar tidak bisa di-back ke layar cerita ini
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => const GameScreenChapter4()),
+                    );
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: const Color(0xFF1A1A1A), width: 3),
+                      boxShadow: const [
+                        BoxShadow(color: Color(0xFF1A1A1A), offset: Offset(4, 4)),
+                      ],
+                    ),
+                    child: const Text(
+                      'MULAI SKENARIO',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w900,
+                        fontSize: 18,
+                        color: Color(0xFF1A1A1A),
+                        letterSpacing: 2,
+                      ),
+                    ),
+                  ),
+                ),
+            ],
           ),
         ),
       ),
