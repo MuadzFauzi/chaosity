@@ -6,7 +6,7 @@ Menggunakan metode **psikologi terbalik (reverse psychology)**, pemain diberikan
 
 ---
 
-## 🛠️ Fitur & Fungsi Utama
+## Fitur & Fungsi Utama
 
 * **State-Based Frame UI System (Infrastruktur Ringan):** Antarmuka Flutter yang efisien memanfaatkan perubahan aset visual statis berbasis state. Aplikasi tidak membutuhkan animasi berjalan yang kompleks sehingga sangat ringan dalam proses eksekusi dan koding.
 * **Gamified Educational Scenario Branching (Mesin Pembelajaran Interaktif):** Menyediakan kurikulum berbasis game berupa skenario pilihan bercabang. Pengguna belajar secara aktif dengan mengeksplorasi akhir cerita yang sukses (`SUCCESS`) atau gagal (`FAIL/FUNNY`).
@@ -14,7 +14,7 @@ Menggunakan metode **psikologi terbalik (reverse psychology)**, pemain diberikan
 
 ---
 
-## 🗺️ Daftar Chapter & Target SDG
+## Daftar Chapter & Target SDG
 
 Aplikasi ini mencakup 6 pilar SDG lintas sektor yang dikemas dalam dilema lokal mahasiswa:
 
@@ -29,7 +29,7 @@ Aplikasi ini mencakup 6 pilar SDG lintas sektor yang dikemas dalam dilema lokal 
 
 ---
 
-## 🚀 Cara Menjalankan Proyek di Lokal
+## Cara Menjalankan Proyek di Lokal
 
 ### Prasyarat
 * Sudah menginstal [Flutter SDK](https://docs.flutter.dev/get-started/install) terbaru.
@@ -59,3 +59,10 @@ Game ini menggunakan gaya Neo-Brutalism / Comic Style dengan ciri khas:
 - Garis tepi hitam yang tebal (thick borders).
 - Warna-warna flat kotras tinggi yang kaku.
 - Aset visual komik statis untuk menjaga performa aplikasi tetap optimal dan ringan.
+
+---
+
+## Anggota Kelompok
+
+- Muadz Fauzi (2308107010042)
+- Muhammad Hizqil Alfi (2308107010046)
